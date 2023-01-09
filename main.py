@@ -12,4 +12,4 @@ def start_scraping(cloud_event):
 @functions_framework.cloud_event
 def do_scraping(cloud_event):
     subcription_name = "projects/scraping-3f03b/subscriptions/doScraping-sub"
-    PubSub.lerMensagem(subcription_name)
+    PubSub.lerNomeProduto(subcription_name)

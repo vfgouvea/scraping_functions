@@ -13,15 +13,14 @@ def publicar(topic_path, product_name):
         print(e)
 
 
-def callback(message: pubsub_v1.subscriber.message.Message) -> None:
-    print(f"Mensagem : {message.data.decode('utf-8')}")
-    message.ack()
+def lerNomeProduto(subcription_name):
+    def callback(message: pubsub_v1.subscriber.message.Message):
+        value = message.data.decode('utf-8')
+        print(f"Mensagem : {value}")
+        message.ack()
 
-
-def lerMensagem(subcription_name):
     try:
         future = subscriber.subscribe(subcription_name, callback)
         future.result()
     except Exception as e:
         print(e)
-
