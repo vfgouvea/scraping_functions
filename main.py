@@ -14,4 +14,4 @@ def start_scraping(cloud_event):
 @functions_framework.cloud_event
 def do_scraping(cloud_event):
     subcription_name = "projects/scraping-3f03b/subscriptions/doScraping-sub"
-    Subscriber.lerNomeProduto(subcription_name, Firestore.write)
+    Subscriber.subscribeWithCallback(subcription_name, Firestore.write)
